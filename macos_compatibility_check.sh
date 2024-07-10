@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Hardcoded Mac Model Identifier
+# Mac Model Identifier
 mac_model=$(/usr/sbin/sysctl -n hw.model)
 
 ##################################################
