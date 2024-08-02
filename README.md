@@ -1,7 +1,14 @@
 # macOS Compatibility Script
-This script will check the hardware model ID of the Mac you run it on, then will output the maximum major OS version it is compatible with, such as 10.15 (Catalina), 13 (Monterey) etc.  
+This script will check the hardware model ID of the Mac you run it on, then will output the maximum supported OS it is compatible with. For example, if the Mac is compatible with Sonoma, it will output 14.
 
-Compatible to check for max OSes of 10.11 up to 15. Since macOS 15 Sequoia isn't out yet, there is a script with and without Sequoia compatibility checking.
+It is a refactor of [this script that is meant for use in JAMF](https://github.com/macadmins/sofa/blob/main/tool-scripts/macOSCompatibilityCheck-EA.sh) and was built for use as a custom fact in Addigy.
 
-## How to Run
-This script can be run directly on a Mac or placed into your MDM as a custom fact (Addigy) or similar.
+## Output
+The output is based on data from [SOFA](https://sofa.macadmins.io/), so the script is dynamic and doesn't need to be updated when new models or new major OS versions come out.
+
+For any supported OS versions, the script will output the numerical version such as `14`. For unsupported OS versions (such as Big Sur, Catalina, etc) it will output `Unsupported`.
+
+## Use Cases
+To use as an Addigy Custom Fact, simply create a Custom Fact with a string output and put the script in it.
+
+To use with a more verbose output, change `LOG_MODE` in the script to `true`. This is useful for other methods such as commands and Smart Software.
